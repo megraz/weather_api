@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Super Doggo</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+        fetch('https://dog.ceo/api/breed/shiba/images/random')
+            .then(function(request) { //then execute après
+                return request.json(); //on résup l'objet json du ceo
+            }).then(function(json) {
+                console.log(json);
+                let img = document.createElement('img'); //on créé l'objet img
+                img.src = json.message; //on met la source à l'intérieur qu'il mette la src de l'objet json dt on a donné l'url
+                document.body.appendChild(img); //puis on l'ajoute au body
+            }).catch(function(error) {
+                console.error(error.message); //catch executé en cas d'erreur
+            });
+    </script>
+
+</body>
+
+</html>
